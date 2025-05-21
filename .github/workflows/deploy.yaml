@@ -36,7 +36,7 @@ jobs:
           username: ${{ secrets.EC2_USER}}
           key: ${{ secrets.AWS_ACCESS_PEM }}
           script: |
-            echo"${{ secrets.GH_TOKEN }}" | docker login ghcr.io -u ${{ secrets.GH_USERNAME }} --password-stdin
+            echo "${{ secrets.GH_TOKEN }}" | docker login ghcr.io -u ${{ secrets.GH_USERNAME }} --password-stdin
             docker pull ghcr.io/${{ secrets.GH_USERNAME }}/fastapi-app:latest
             docker stop fastapi-app || true
             docker rm fastapi-app || true
